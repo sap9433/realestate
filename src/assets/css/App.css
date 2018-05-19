@@ -1,0 +1,17 @@
+h1 {
+  font-family: helvetica;
+  font-weight: 200;
+}
+
+.dollar{
+	color: #85bb65;
+    font-weight: 600;
+}
+
+.dollar::before { 
+    content: "$ ";
+}
+
+#root{
+	padding: 20px;
+}
