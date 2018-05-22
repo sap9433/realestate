@@ -31,10 +31,10 @@ class App extends Component {
                     PROPERTYZIP,
                     WARD,
                     BLOCK_LOT,
-                    \`filing_date:1\`,
+                    \`filing_date:1\` As F_FilingDate,
                     case_id,
                     docket_type,
-                    \`amount:1\`,
+                    \`amount:1\` As F_AMOUNT,
                     plaintiff,
                     FILING_DATE,
                     DTD,
@@ -100,6 +100,12 @@ class App extends Component {
         });
         db.close();
     }
+    onGridReady(params){
+       this.gridApi = params.api; 
+    }
+    onBtExport() {
+        this.gridApi.exportDataAsExcel();
+    }
 
     render() {
         const {rowData} = this.state;
@@ -112,12 +118,20 @@ class App extends Component {
                     margin: 'auto'
                 }}
             >
+            <button 
+            style={{
+                    position: 'absolute',
+                    top: 10,
+                    right: 32,
+                }}
+            onClick={this.onBtExport.bind(this)}>Export to Excel</button>
             <AgGridReact
                 enableSorting={true}
                 enableFilter={true}
                 enableColResize={true}
                 columnDefs={this.state.columnDefs}
-                rowData={this.state.rowData}>
+                rowData={this.state.rowData}
+                onGridReady={this.onGridReady.bind(this)}>
             </AgGridReact>
             </div>
         );
