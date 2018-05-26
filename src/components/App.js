@@ -76,6 +76,9 @@ class App extends Component {
                             filter: "agNumberColumnFilter", 
                             cellClass: 'dollar',
                             valueFormatter: function (params) {
+                                if(!params.value){
+                                    return 0.00;
+                                }
                                 let val = params.value.split('.');
                                 let comma = Number(parseInt(val[0]).toFixed(1)).toLocaleString();
                                 let dec = val[1];

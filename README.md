@@ -19,4 +19,3 @@ Assessments: https://data.wprdc.org/dataset/property-assessments/resource/518b58
  - This App uses `/usr/local/realdb.db` data base . DB is kept external as the users can manually change the DB when required without changing the app .
 
  - The bundled application can be found inside the builds folder.
-
